@@ -1,0 +1,9 @@
+import json
+data = json.load(open("data.json"))
+
+def foo(a):
+    alpha = input()
+    sigma = data["alpha"]
+    return print(sigma)
+
+

@@ -1,0 +1,49 @@
+import pyscopg2
+
+
+def create_table():
+    conn=sqlite3.connect("")
+    cur=conn.cursor()
+    cur.execute("CREATE TABLE IF NOT EXISTS store2 (item TEXT, quantity INTEGER, price REAL)")
+    conn.commit()
+    conn.close()
+
+
+def insert(items,quantity,price):
+    conn=sqlite3.connect("lite.db")
+    cur=conn.cursor()
+    cur.execute("INSERT INTO store2 VALUES (?,?,?)",(items,quantity,price))
+    conn.commit()
+    conn.close()
+
+
+def view():
+    conn=sqlite3.connect("lite.db")
+    cur=conn.cursor()
+    cur.execute("SELECT * FROM store2")
+    rows=cur.fetchall()
+    conn.close()
+    return rows
+
+
+def delete(item):
+    conn=sqlite3.connect("lite.db")
+    cur=conn.cursor()
+    cur.execute("DELETE FROM store WHERE item=?", (item,))
+    conn.commit
+    conn.close()
+    
+    
+def update(quantity,price,item):
+    conn=sqlite3.connect("lite.db")
+    cur=conn.cursor()
+    cur.execute("UPDATE store2 SET quantity=?, price=? WHERE item=?",(quantity, price, item))
+    conn.commit()
+    conn.close()
+    print("complete")
+    
+
+#delete("Wine Glass")
+#insert("Espresso Cup",12,5)
+update(11,30,"Espresso Cup")
+print(view())

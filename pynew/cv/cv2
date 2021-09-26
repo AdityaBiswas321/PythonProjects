@@ -1,0 +1,18 @@
+import cv2
+import glob
+
+image=glob.glob("*.jpg")
+
+
+# print(type(img))
+# print(img)
+# print(img.shape)
+# print(img.ndim)
+
+for image in image:
+    img=cv2.imread(image,0)
+    re=cv2.resize(img,(100,100))
+    cv2.imshow("Hey", re)
+    cv2.waitKey(500)
+    cv2.destroyAllWindows
+    

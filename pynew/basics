@@ -1,0 +1,16 @@
+
+dataset = [1, 2, 3, 4, 5]
+results = [] 
+
+
+for data in dataset:
+    if data > 2:
+        results.append(data)
+    
+
+
+
+print(results)
+
+
+    
